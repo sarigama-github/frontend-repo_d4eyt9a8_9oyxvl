@@ -5,42 +5,45 @@
 @layer base {
   :root {
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --cream-50: #fbf9f4;
+    --cream-100: #f5f1e8;
+    --cream-200: #eae4d8;
+    --cream-300: #d8d2c4;
+    --muted-gold: #c8a96b;
+    --deep-green: #0f3d2e;
+    --deep-blue: #0b2a3a;
   }
 
-  html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  body {
-    @apply antialiased;
-  }
+  html { font-family: var(--font-sans); font-feature-settings: "rlig" 1, "calt" 1; }
+  body { @apply antialiased bg-slate-950; }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Custom color utilities (minimal set used by the page) */
 @layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
+  .text-cream-50 { color: var(--cream-50); }
+  .text-cream-100 { color: var(--cream-100); }
+  .text-cream-200 { color: var(--cream-200); }
+  .text-cream-100\/90 { color: color-mix(in oklab, var(--cream-100) 90%, transparent); }
+  .text-cream-200\/90 { color: color-mix(in oklab, var(--cream-200) 90%, transparent); }
+  .text-cream-200\/80 { color: color-mix(in oklab, var(--cream-200) 80%, transparent); }
+  .text-cream-300\/70 { color: color-mix(in oklab, var(--cream-300) 70%, transparent); }
+  .text-cream-300\/60 { color: color-mix(in oklab, var(--cream-300) 60%, transparent); }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
+  .border-cream-300 { border-color: var(--cream-300); }
+  .border-cream-300\/30 { border-color: color-mix(in oklab, var(--cream-300) 30%, transparent); }
+  .border-cream-300\/20 { border-color: color-mix(in oklab, var(--cream-300) 20%, transparent); }
+
+  .placeholder-cream-300\/50::placeholder { color: color-mix(in oklab, var(--cream-300) 50%, transparent); }
+
+  .bg-muted-gold { background-color: var(--muted-gold); }
+  .text-muted-gold { color: var(--muted-gold); }
+
+  /* Gradient helpers for buttons */
+  .from-deep-green { --tw-gradient-from: var(--deep-green) var(--tw-gradient-from-position); --tw-gradient-to: color-mix(in oklab, var(--deep-green) 0%, transparent) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .to-deep-blue { --tw-gradient-to: var(--deep-blue) var(--tw-gradient-to-position); }
+
+  /* Soft cream text utility */
+  .text-cream-100 { color: var(--cream-100); }
+  .text-cream-200 { color: var(--cream-200); }
+  .text-cream-200\/90 { color: color-mix(in oklab, var(--cream-200) 90%, transparent); }
 }
